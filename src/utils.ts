@@ -63,3 +63,30 @@ type Config = {
 export function defineConfig(config: Config): Config {
     return config
 }
+
+export function isOriginAllowed(
+    origin: string,
+    allowedOrigins: string[],
+): boolean {
+    const normalizedOrigin = origin.endsWith("/") ? origin.slice(0, -1) : origin
+
+    return allowedOrigins.some((allowed) => {
+        const normalizedAllowed = allowed.endsWith("/")
+            ? allowed.slice(0, -1)
+            : allowed
+
+        // Exact match
+        if (normalizedOrigin === normalizedAllowed) {
+            return true
+        }
+
+        // Wildcard match (e.g., "https://*.finxol.io" matches "https://app.finxol.io")
+        if (normalizedAllowed.includes("*")) {
+            const pattern = normalizedAllowed.replace(/\*/g, ".*")
+            const regex = new RegExp(`^${pattern}$`)
+            return regex.test(normalizedOrigin)
+        }
+
+        return false
+    })
+}

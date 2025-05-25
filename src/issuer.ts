@@ -6,32 +6,9 @@ import { z } from "zod/v4-mini"
 import { getGithubUserData } from "./github-profile-fetcher.ts"
 import { DenoKV } from "./deno-kv-adapter.ts"
 import config from "../config.ts"
+import { isOriginAllowed } from "./utils.ts"
 
 const clientID = Deno.env.get("CLIENT_ID")
-
-function isOriginAllowed(origin: string, allowedOrigins: string[]): boolean {
-    const normalizedOrigin = origin.endsWith("/") ? origin.slice(0, -1) : origin
-
-    return allowedOrigins.some((allowed) => {
-        const normalizedAllowed = allowed.endsWith("/")
-            ? allowed.slice(0, -1)
-            : allowed
-
-        // Exact match
-        if (normalizedOrigin === normalizedAllowed) {
-            return true
-        }
-
-        // Wildcard match (e.g., "https://*.finxol.io" matches "https://app.finxol.io")
-        if (normalizedAllowed.includes("*")) {
-            const pattern = normalizedAllowed.replace(/\*/g, ".*")
-            const regex = new RegExp(`^${pattern}$`)
-            return regex.test(normalizedOrigin)
-        }
-
-        return false
-    })
-}
 
 const user = z.object({
     id: z.string(),
@@ -90,13 +67,6 @@ const issuer = oa({
                 }
             }
 
-            for (const [key, value] of req.headers.entries()) {
-                console.log(`${key}: ${value}`)
-            }
-
-            console.log("Origin:", origin)
-            console.log("Allowed Origins:", config.allowedOrigins)
-
             if (!origin || !isOriginAllowed(origin, config.allowedOrigins)) {
                 return resolve(false)
             }
@@ -114,7 +84,7 @@ const issuer = oa({
 
             if (userData.value) {
                 return ctx.subject("user", {
-                    id: userData.value.remoteId,
+                    id: `${userData.value.provider}:${userData.value.remoteId}`,
                     email: userData.value.email,
                     name: userData.value.name,
                     avatar: userData.value.avatar,
