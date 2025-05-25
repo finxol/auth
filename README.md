@@ -44,6 +44,7 @@ Currently, the configurable options are:
 - **`description`**: The description of the auth server. Shown on the home page.
 
 Example configuration:
+
 ```typescript
 export default defineConfig({
     title: "My Auth Server",
@@ -72,17 +73,17 @@ Everything will work normally.
 ### Running the Server
 
 Development mode with hot reload:
+
 ```bash
 deno task dev
 ```
 
 Production build:
+
 ```bash
 deno task build
 deno task start
 ```
-
-</details>
 
 ## Project Structure
 
@@ -90,6 +91,8 @@ deno task start
 - `src/main.ts` - Application entry point
 - `src/issuer.ts` - OpenAuth issuer implementation
 - `.env` - Environment variables (create your own)
+
+</details>
 
 ## Contributing
 

@@ -2,7 +2,8 @@ import { defineConfig } from "./src/utils.ts"
 
 export default defineConfig({
     title: "finxol auth",
-    description: "This is the personal auth server for <a href='https://finxol.io'>finxol</a>'s projects.",
+    description:
+        "This is the personal auth server for <a href='https://finxol.io'>finxol</a>'s projects.",
     allowedOrigins: [
         "http://localhost/",
         "http://localhost:*/",
