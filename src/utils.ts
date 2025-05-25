@@ -70,8 +70,6 @@ export function isOriginAllowed(
     origin: URL,
     allowedOrigins: string[],
 ): boolean {
-    const sep = String.fromCharCode(0x0)
-
     return allowedOrigins.some((allowed) => {
         // Handle protocol differences
         if (allowed.startsWith("http://") && origin.protocol !== "http:") {
@@ -86,9 +84,10 @@ export function isOriginAllowed(
         if (!allowed.includes("*")) {
             allowedHost = new URL(allowed).hostname
         } else {
-            allowedHost = new URL(allowed.replace(/\*/g, sep))
-                .hostname
-                .replace(sep, ".")
+            allowedHost = allowed.replace(/https?:\/\//g, "")
+                .replace(/\/$/, "")
+                .replace(/\./g, "\\.")
+                .replace(/\*/, ".*")
         }
 
         const regex = new RegExp(`^${allowedHost}$`)
