@@ -38,7 +38,7 @@ const issuer = oa({
     },
     allow: (input, req) =>
         new Promise((resolve) => {
-            for (const header of req.headers.values()) {
+            for (const header of req.headers.entries()) {
                 console.log(`Header: ${header[0]} = ${header[1]}`)
             }
 
