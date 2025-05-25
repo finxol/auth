@@ -1,10 +1,13 @@
 {
     "tasks": {
-        "dev": "deno run --watch --allow-env --allow-net --allow-read --allow-write src/main.ts"
+        "dev": "deno run --env-file --watch --allow-env --allow-net --allow-read --allow-write src/main.ts",
+        "build": "deno run --allow-run --allow-env --allow-net --allow-read --allow-write script/bundle.ts"
+        "start": "deno run --env-file --allow-run --allow-env --allow-net --allow-read --allow-write out/main.mjs"
     },
     "imports": {
+        "esbuild": "npm:esbuild@^0.25.4",
         "hono": "jsr:@hono/hono@^4.7.10",
-        "openauth": "npm:@openauthjs/openauth",
+        "@openauthjs/openauth": "npm:@openauthjs/openauth",
         "ofetch": "npm:ofetch@^1.4.1",
         "zod": "npm:zod@^3.25.28"
     },

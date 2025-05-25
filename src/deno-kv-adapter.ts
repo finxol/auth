@@ -24,7 +24,7 @@
  *
  * @packageDocumentation
  */
-import { type StorageAdapter } from "openauth/storage/storage"
+import { type StorageAdapter } from "@openauthjs/openauth/storage/storage"
 
 export async function DenoKV({
     path,

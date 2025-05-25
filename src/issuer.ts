@@ -1,6 +1,6 @@
-import { issuer as oa } from "openauth"
-import { createSubjects } from "openauth/subject"
-import { GithubProvider } from "openauth/provider/github"
+import { issuer as oa } from "@openauthjs/openauth"
+import { createSubjects } from "@openauthjs/openauth/subject"
+import { GithubProvider } from "@openauthjs/openauth/provider/github"
 import { z } from "zod/v4-mini"
 
 import { getGithubUserData } from "./github-profile-fetcher.ts"
