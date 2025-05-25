@@ -67,28 +67,31 @@ export function defineConfig(config: Config): Config {
 }
 
 export function isOriginAllowed(
-    origin: string,
+    origin: URL,
     allowedOrigins: string[],
 ): boolean {
-    const normalizedOrigin = origin.endsWith("/") ? origin.slice(0, -1) : origin
+    const sep = String.fromCharCode(0x0)
 
     return allowedOrigins.some((allowed) => {
-        const normalizedAllowed = allowed.endsWith("/")
-            ? allowed.slice(0, -1)
-            : allowed
-
-        // Exact match
-        if (normalizedOrigin === normalizedAllowed) {
-            return true
+        // Handle protocol differences
+        if (allowed.startsWith("http://") && origin.protocol !== "http:") {
+            return false
+        }
+        if (allowed.startsWith("https://") && origin.protocol !== "https:") {
+            return false
         }
 
-        // Wildcard match (e.g., "https://*.finxol.io" matches "https://app.finxol.io")
-        if (normalizedAllowed.includes("*")) {
-            const pattern = normalizedAllowed.replace(/\*/g, ".*")
-            const regex = new RegExp(`^${pattern}$`)
-            return regex.test(normalizedOrigin)
+        // Handle hostname differences
+        let allowedHost: string
+        if (!allowed.includes("*")) {
+            allowedHost = new URL(allowed).hostname
+        } else {
+            allowedHost = new URL(allowed.replace(/\*/g, sep))
+                .hostname
+                .replace(sep, ".")
         }
 
-        return false
+        const regex = new RegExp(`^${allowedHost}$`)
+        return regex.test(origin.hostname)
     })
 }
