@@ -64,15 +64,34 @@ const issuer = oa({
             let origin = req.headers.get("origin")
 
             if (!origin) {
-                const forwardedHost = req.headers.get("x-forwarded-host")
-                const host = forwardedHost || req.headers.get("host")
-
-                if (host) {
-                    const forwardedProto = req.headers.get("x-forwarded-proto")
-                    const protocol = forwardedProto ||
-                        (forwardedHost ? "https" : "http")
-                    origin = `${protocol}://${host}`
+                const referer = req.headers.get("referer")
+                if (referer) {
+                    try {
+                        const refererUrl = new URL(referer)
+                        origin = refererUrl.origin
+                    } catch {
+                        // Invalid referer URL, ignore
+                    }
                 }
+
+                // Fall back to host-based origin if referer is not available
+                if (!origin) {
+                    const forwardedHost = req.headers.get("x-forwarded-host")
+                    const host = forwardedHost || req.headers.get("host")
+
+                    if (host) {
+                        const forwardedProto = req.headers.get(
+                            "x-forwarded-proto",
+                        )
+                        const protocol = forwardedProto ||
+                            (forwardedHost ? "https" : "http")
+                        origin = `${protocol}://${host}`
+                    }
+                }
+            }
+
+            for (const [key, value] of req.headers.entries()) {
+                console.log(`${key}: ${value}`)
             }
 
             console.log("Origin:", origin)

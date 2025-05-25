@@ -18,8 +18,8 @@ const result = await tryCatch(
         external: ["node:*", "bun:*"],
         splitting: true,
         outExtension: { ".js": ".mjs" },
-        conditions: ["deno"]
-    })
+        conditions: ["deno"],
+    }),
 )
 
 if (!result.success) {
@@ -34,9 +34,9 @@ const bytes = Object.keys(result.value.metafile.outputs)
     .reduce((acc, size) => acc! + size!, 0)
 
 console.debug(
-    `Generated ${Object.keys(result.value.metafile.outputs).length} chunks`
+    `Generated ${Object.keys(result.value.metafile.outputs).length} chunks`,
 )
 
 console.info(
-    `⚡ Bundled API in ${duration}ms (${(bytes! / 1024).toFixed(2)} kB)`
+    `⚡ Bundled API in ${duration}ms (${(bytes! / 1024).toFixed(2)} kB)`,
 )
