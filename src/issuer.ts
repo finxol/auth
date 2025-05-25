@@ -75,6 +75,9 @@ const issuer = oa({
                 }
             }
 
+            console.log("Origin:", origin)
+            console.log("Allowed Origins:", config.allowedOrigins)
+
             if (!origin || !isOriginAllowed(origin, config.allowedOrigins)) {
                 return resolve(false)
             }
