@@ -104,7 +104,7 @@ issuer.get("/", (ctx) => {
     return ctx.html(`
         <html>
             <head>
-                <title>finxol auth</title>
+                <title>${config.title || "auth server"}</title>
                 <style>
                     body {
                         font-family: Arial, sans-serif;
@@ -130,12 +130,9 @@ issuer.get("/", (ctx) => {
                 </style>
             </head>
             <body>
-                <h1>finxol auth</h1>
+                <h1>${config.title || "auth server"}</h1>
                 <p>
-                    This is the personal auth server for
-                    <a href="https://finxol.io">finxol</a>'s
-                    projects.
-                    <br>
+                    ${config.description || "This is a simple auth server"}
                 </p>
                 </body>
         </html>

@@ -58,6 +58,8 @@ export async function tryCatch<T, E = Error>(
 
 type Config = {
     allowedOrigins: (`http://${string}` | `https://${string}`)[]
+    title?: string
+    description?: string
 }
 
 export function defineConfig(config: Config): Config {
