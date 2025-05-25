@@ -38,6 +38,10 @@ const issuer = oa({
     },
     allow: (input, req) =>
         new Promise((resolve) => {
+            for (const header of req.headers.values()) {
+                console.log(`Header: ${header[0]} = ${header[1]}`)
+            }
+
             let origin = req.headers.get("origin")
 
             if (!origin) {
