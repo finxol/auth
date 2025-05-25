@@ -36,13 +36,9 @@ const issuer = oa({
             pkce: true,
         }),
     },
-    allow: (input, req) =>
+    allow: (input, _req) =>
         new Promise((resolve) => {
             const redir = new URL(input.redirectURI)
-
-            for (const header of req.headers.entries()) {
-                console.log(`Header: ${header[0]} = ${header[1]}`)
-            }
 
             if (!redir || !isOriginAllowed(redir, config.allowedOrigins)) {
                 console.log(`Origin ${redir} not allowed`)
