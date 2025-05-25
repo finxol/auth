@@ -6,7 +6,6 @@
     },
     "imports": {
         "esbuild": "npm:esbuild@^0.25.4",
-        "hono": "jsr:@hono/hono@^4.7.10",
         "@openauthjs/openauth": "npm:@openauthjs/openauth",
         "ofetch": "npm:ofetch@^1.4.1",
         "zod": "npm:zod@^3.25.28"

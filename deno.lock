@@ -1,18 +1,12 @@
 {
   "version": "5",
   "specifiers": {
-    "jsr:@hono/hono@^4.7.10": "4.7.10",
     "npm:@openauthjs/openauth@*": "0.4.3_arctic@2.3.4_hono@4.6.13",
     "npm:@types/node@*": "22.15.15",
     "npm:create-hono@*": "0.19.1",
     "npm:esbuild@~0.25.4": "0.25.4",
     "npm:ofetch@^1.4.1": "1.4.1",
     "npm:zod@^3.25.28": "3.25.28"
-  },
-  "jsr": {
-    "@hono/hono@4.7.10": {
-      "integrity": "e59029e252af371abe43e8e4f9a115e38974c6bd5972022372bf89f763269cc7"
-    }
   },
   "npm": {
     "@esbuild/aix-ppc64@0.25.4": {
@@ -266,7 +260,6 @@
   },
   "workspace": {
     "dependencies": [
-      "jsr:@hono/hono@^4.7.10",
       "npm:@openauthjs/openauth@*",
       "npm:esbuild@~0.25.4",
       "npm:ofetch@^1.4.1",
