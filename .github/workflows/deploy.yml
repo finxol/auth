@@ -46,4 +46,3 @@ jobs:
                   project: finxol-auth
                   entrypoint: main.mjs
                   root: ./out
-                  include: out/*
