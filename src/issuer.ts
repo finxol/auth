@@ -68,10 +68,12 @@ const issuer = oa({
             }
 
             if (!origin || !isOriginAllowed(origin, config.allowedOrigins)) {
+                console.log(`Origin ${origin} not allowed`)
                 return resolve(false)
             }
 
             if (input.clientID !== clientID) {
+                console.log(`Client ID ${input.clientID} not allowed`)
                 return resolve(false)
             }
 
