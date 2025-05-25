@@ -21,5 +21,6 @@
         "include": ["src/"],
         "exclude": ["src/testdata/", "src/fixtures/**/*.ts"]
     },
+    "nodeModulesDir": "auto",
     "unstable": ["kv"]
 }
