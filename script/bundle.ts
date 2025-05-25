@@ -23,7 +23,7 @@ const result = await tryCatch(
 )
 
 if (!result.success) {
-    console.error("Build failed:", )
+    console.error("Build failed:", result.error)
     throw result.error
 }
 

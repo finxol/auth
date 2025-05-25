@@ -28,6 +28,18 @@ jobs:
             - name: Build step
               run: deno task build
 
+            - name: Verify build output
+              run: |
+                  echo "Checking build output..."
+                  ls -la out/
+                  if [ ! -f "out/main.mjs" ]; then
+                      echo "Error: main.mjs not found in out directory!"
+                      echo "Contents of out directory:"
+                      find out/ -type f
+                      exit 1
+                  fi
+                  echo "Build verification successful - main.mjs found"
+
             - name: Upload to Deno Deploy
               uses: denoland/deployctl@v1
               with:
