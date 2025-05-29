@@ -25,6 +25,9 @@ jobs:
             - name: Install step
               run: deno install
 
+            - name: Get robots.json
+              run: deno task get-robots-json
+
             - name: Lint step
               run: deno check
 
