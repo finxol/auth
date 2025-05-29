@@ -60,6 +60,7 @@ type Config = {
     allowedOrigins: (`http://${string}` | `https://${string}`)[]
     title?: string
     description?: string
+    blockAiBots?: boolean
 }
 
 export function defineConfig(config: Config): Config {

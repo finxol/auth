@@ -1,12 +1,14 @@
 {
     "tasks": {
-        "dev": "deno run --env-file --watch --allow-env --allow-net --allow-read --allow-write src/main.ts",
-        "build": "deno run --allow-run --allow-env --allow-net --allow-read --allow-write script/bundle.ts",
-        "start": "deno run --env-file --allow-run --allow-env --allow-net --allow-read --allow-write out/main.mjs"
+        "dev": "deno task get-robots-json && deno run --env-file --watch --allow-env --allow-net --allow-read --allow-write src/main.ts",
+        "build": "deno task get-robots-json && deno run --allow-run --allow-env --allow-net --allow-read --allow-write script/bundle.ts",
+        "start": "deno run --env-file --allow-run --allow-env --allow-net --allow-read --allow-write out/main.mjs",
+        "get-robots-json": "deno run --allow-net --allow-write src/ai-bots-blocker/get-robots-txt.ts",
     },
     "imports": {
         "esbuild": "npm:esbuild@^0.25.4",
         "@openauthjs/openauth": "npm:@openauthjs/openauth",
+        "hono": "npm:hono@^4.7.10",
         "ofetch": "npm:ofetch@^1.4.1",
         "zod": "npm:zod@^3.25.28"
     },

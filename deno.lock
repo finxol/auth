@@ -1,10 +1,11 @@
 {
   "version": "5",
   "specifiers": {
-    "npm:@openauthjs/openauth@*": "0.4.3_arctic@2.3.4_hono@4.6.13",
+    "npm:@openauthjs/openauth@*": "0.4.3_arctic@2.3.4_hono@4.7.10",
     "npm:@types/node@*": "22.15.15",
     "npm:create-hono@*": "0.19.1",
     "npm:esbuild@~0.25.4": "0.25.4",
+    "npm:hono@^4.7.10": "4.7.10",
     "npm:ofetch@^1.4.1": "1.4.1",
     "npm:zod@^3.25.28": "3.25.28"
   },
@@ -134,7 +135,7 @@
       "os": ["win32"],
       "cpu": ["x64"]
     },
-    "@openauthjs/openauth@0.4.3_arctic@2.3.4_hono@4.6.13": {
+    "@openauthjs/openauth@0.4.3_arctic@2.3.4_hono@4.7.10": {
       "integrity": "sha512-RlnjqvHzqcbFVymEwhlUEuac4utA5h4nhSK/i2szZuQmxTIqbGUxZ+nM+avM+VV4Ing+/ZaNLKILoXS3yrkOOw==",
       "dependencies": [
         "@standard-schema/spec",
@@ -231,8 +232,8 @@
       "scripts": true,
       "bin": true
     },
-    "hono@4.6.13": {
-      "integrity": "sha512-haV0gaMdSjy9URCRN9hxBPlqHa7fMm/T72kAImIxvw4eQLbNz1rgjN4hHElLJSieDiNuiIAXC//cC6YGz2KCbg=="
+    "hono@4.7.10": {
+      "integrity": "sha512-QkACju9MiN59CKSY5JsGZCYmPZkA6sIW6OFCUp7qDjZu6S6KHtJHhAc9Uy9mV9F8PJ1/HQ3ybZF2yjCa/73fvQ=="
     },
     "jose@5.9.6": {
       "integrity": "sha512-AMlnetc9+CV9asI19zHmrgS/WYsWUwCn2R7RzlbJWD7F9eWYUTGyBmU9o6PxngtLGOiDGPRu+Uc4fhKzbpteZQ=="
@@ -262,6 +263,7 @@
     "dependencies": [
       "npm:@openauthjs/openauth@*",
       "npm:esbuild@~0.25.4",
+      "npm:hono@^4.7.10",
       "npm:ofetch@^1.4.1",
       "npm:zod@^3.25.28"
     ]
