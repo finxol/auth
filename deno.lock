@@ -1,6 +1,7 @@
 {
   "version": "5",
   "specifiers": {
+    "npm:@hono/ua-blocker@~0.1.1": "0.1.1_hono@4.7.10",
     "npm:@openauthjs/openauth@*": "0.4.3_arctic@2.3.4_hono@4.7.10",
     "npm:@types/node@*": "22.15.15",
     "npm:create-hono@*": "0.19.1",
@@ -135,6 +136,12 @@
       "os": ["win32"],
       "cpu": ["x64"]
     },
+    "@hono/ua-blocker@0.1.1_hono@4.7.10": {
+      "integrity": "sha512-d4207RLSoZZ9/4tDQJKtCGRd0h5rBVxzQxIErPAtecMAOq2yiwCzb58T6nSH1mUsbGWkAeXrCr4fx5iEW93SUg==",
+      "dependencies": [
+        "hono"
+      ]
+    },
     "@openauthjs/openauth@0.4.3_arctic@2.3.4_hono@4.7.10": {
       "integrity": "sha512-RlnjqvHzqcbFVymEwhlUEuac4utA5h4nhSK/i2szZuQmxTIqbGUxZ+nM+avM+VV4Ing+/ZaNLKILoXS3yrkOOw==",
       "dependencies": [
@@ -261,6 +268,7 @@
   },
   "workspace": {
     "dependencies": [
+      "npm:@hono/ua-blocker@~0.1.1",
       "npm:@openauthjs/openauth@*",
       "npm:esbuild@~0.25.4",
       "npm:hono@^4.7.10",

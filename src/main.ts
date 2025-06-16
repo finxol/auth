@@ -1,14 +1,17 @@
 import { Hono } from "hono"
 import { issuer } from "./issuer.ts"
 import config from "../config.ts"
-import { blockAiBots, useAiRobotsTxt } from "./ai-bots-blocker/index.ts"
+import { uaBlocker } from "@hono/ua-blocker"
+import { aiBots, useAiRobotsTxt } from "@hono/ua-blocker/ai-bots"
 
 const app = new Hono()
     .get("/robots.txt", useAiRobotsTxt())
     .use(
         "*",
         config.blockAiBots !== false
-            ? blockAiBots()
+            ? uaBlocker({
+                blocklist: aiBots,
+            })
             : async (_c, next) => await next(),
     )
     .route("/", issuer)

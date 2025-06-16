@@ -6,6 +6,7 @@
         "get-robots-json": "deno run --allow-net --allow-write src/ai-bots-blocker/get-robots-txt.ts",
     },
     "imports": {
+        "@hono/ua-blocker": "npm:@hono/ua-blocker@^0.1.1",
         "esbuild": "npm:esbuild@^0.25.4",
         "@openauthjs/openauth": "npm:@openauthjs/openauth",
         "hono": "npm:hono@^4.7.10",
