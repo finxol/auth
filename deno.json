@@ -7,11 +7,11 @@
     },
     "imports": {
         "@hono/ua-blocker": "npm:@hono/ua-blocker@^0.1.1",
-        "esbuild": "npm:esbuild@^0.25.4",
+        "esbuild": "npm:esbuild@^0.25.5",
         "@openauthjs/openauth": "npm:@openauthjs/openauth",
-        "hono": "npm:hono@^4.7.10",
+        "hono": "npm:hono@^4.7.11",
         "ofetch": "npm:ofetch@^1.4.1",
-        "zod": "npm:zod@^3.25.28"
+        "zod": "npm:zod@^3.25.64"
     },
     "fmt": {
         "useTabs": false,
