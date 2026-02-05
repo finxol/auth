@@ -7,8 +7,7 @@ export default defineConfig({
     allowedOrigins: [
         "https://finxol.io",
         "https://*.finxol.io/",
-        "https://finxol.dev/",
-        "https://*.finxol.dev/",
-        "http://localhost/",
+        "https://*.finxol.deno.net/",
+        "http://localhost:5173/",
     ],
 })
