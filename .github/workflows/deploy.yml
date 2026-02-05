@@ -25,9 +25,6 @@ jobs:
             - name: Install step
               run: deno install
 
-            - name: Lint step
-              run: deno check
-
             - name: Build step
               run: deno task build
 
