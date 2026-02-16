@@ -8,6 +8,7 @@ export default defineConfig({
         "https://finxol.io",
         "https://*.finxol.io/",
         "https://*.finxol.deno.net/",
+        "https://pinboard.ing/",
         "http://localhost:5173/",
     ],
 })
