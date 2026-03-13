@@ -10,5 +10,7 @@ export default defineConfig({
         "https://*.finxol.deno.net/",
         "https://pinboard.ing/",
         "http://localhost:5173/",
+        "https://nonrural-magistratically-kelvin.ngrok-free.dev/",
+        "http://nonrural-magistratically-kelvin.ngrok-free.dev/",
     ],
 })
